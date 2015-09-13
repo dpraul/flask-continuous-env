@@ -1,4 +1,5 @@
-Index:
+index:
     uri: '/'
     methods:
         - GET
+    controller: Index

@@ -83,23 +83,23 @@ def create_routes(app, app_routes=routes_config):
         raise ConfigNotFoundError('Routes config is empty')
 
     # Loop over app_routes (probably from a yml file)
-    for controller, route in app_routes.iteritems():
+    for name, route in app_routes.iteritems():
         # Make sure the route has an associated controller
         try:
-            loaded_mod = load_class('flask_site.controllers.%s' % controller)
+            loaded_mod = load_class('flask_site.controllers.%s' % route['controller'])
         except AttributeError:
-            raise ControllerNotFoundError('Class %s is not found' % controller)
+            raise ControllerNotFoundError('Class %s is not found' % route['controller'])
         # Make sure that the controller implements methods for each defined in the config
         cls_methods = dir(loaded_mod)
         for method in route['methods']:
             method = method.lower()
             if method not in cls_methods:
                 raise HTTPMethodNotImplementedError(
-                    'Class %s is not implementing method %s' % (controller, method.upper())
+                    'Class %s is not implementing method %s' % (route['controller'], method.upper())
                 )
         # Finally, add a url rule for this route
         app.add_url_rule(route['uri'],
-                         view_func=loaded_mod.as_view('%s_controller' % controller),
+                         view_func=loaded_mod.as_view('%s_controller' % route['controller']),
                          methods=route['methods'])
 
 
