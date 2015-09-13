@@ -30,8 +30,8 @@ Build flow based off of [Batista Harahap's configuration](http://www.bango29.com
 - If you make any changes to `flask_site/config/config.yml`, the file must be manually uploaded to `/home/$USER/blue-green/config/config.yml`
 
 ## Run
-Run `python start.py` to start Flask locally at 127.0.0.1:5000.  
-Run `python start.py production` to test the production configuration.
+Run `python start.py development` to start Flask locally at 127.0.0.1:5000.  
+Run `python start.py` to test the production configuration.
 
 ## Test
 Run `nosetests --with-xunit --with-xcoverage --cover-package=flask_site --cover-erase tests`
