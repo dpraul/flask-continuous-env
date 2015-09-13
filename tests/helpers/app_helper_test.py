@@ -52,9 +52,10 @@ class AppHelperTest(BaseTest):
         app = Flask(__name__)
 
         test_routes = {
-            'ERROR__': {
+            'error': {
                 'uri': '/__error/',
-                'methods': ['GET']
+                'methods': ['GET'],
+                'controller': '_ERROR'
             }
         }
 
@@ -66,7 +67,7 @@ class AppHelperTest(BaseTest):
 
         from flask_site.helpers import routes_config
 
-        routes_config['Index']['methods'].append('POST')
+        routes_config['index']['methods'].append('POST')
 
         create_routes(app, app_routes=routes_config)
 
