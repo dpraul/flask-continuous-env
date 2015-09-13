@@ -1,0 +1,16 @@
+language: python
+python:
+- '2.7'
+install:
+- npm install -g bower -g less
+- bower install
+- pip install -r requirements.txt
+- cp flask_site/config/config_sample.yml flask_site/config/config.yml
+script: nosetests --with-xunit --with-xcoverage --cover-package=flask_site --cover-erase tests
+before_deploy:
+- pip install fabric gitric
+deploy:
+  provider: script
+  script: fab -H $DEPLOY_HOSTS -p $DEPLOY_PASS prod deploy_from_travis cutover
+  on:
+    branch: master

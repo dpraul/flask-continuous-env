@@ -1,0 +1,36 @@
+default: &default
+    flask: &flaskDefault
+        debug: True
+        bind_ip: 127.0.0.1
+        bind_port: 5000
+        secret_key: verysecretkeythisis
+
+    database: &databaseDefault
+        ip: 127.0.0.1
+        port: 3306
+        username: root
+        password:
+
+test:  # Same as development and default.
+    <<: *default
+
+    database:
+        <<: *databaseDefault
+
+development:
+    <<: *default
+
+    database:
+        <<: *databaseDefault
+
+production:
+    <<: *default
+    flask:
+        <<: *flaskDefault
+        debug: False
+
+    database:
+        <<: *databaseDefault
+        username: klik_production
+        password: v3RY57r0NgpA5swORd!
+        database: klik_production

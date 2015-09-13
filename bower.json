@@ -1,0 +1,11 @@
+{
+  "name": "flask_site",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "jquery": "~2.1.4",
+    "animate.css": "~3.4.0"
+  },
+  "devDependencies": {}
+}

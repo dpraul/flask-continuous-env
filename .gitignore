@@ -1,0 +1,43 @@
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.zip
+*.vi
+*~
+
+# OS folders
+.DS_Store
+._*
+Thumbs.db
+
+# Folders to ignore
+.hg
+.svn
+.CVS
+.idea
+
+# virtualenv
+env
+
+# node & bower
+static/bower_components
+node_modules
+
+# generated
+static/out
+static/.webassets-cache
+*.pyc
+tmp
+
+# tests
+.coverage
+coverage.xml
+nosetests.xml
+
+# Just in case people are silly
+flask_site/config/config.yml
