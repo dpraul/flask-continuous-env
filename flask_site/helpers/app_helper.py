@@ -99,7 +99,7 @@ def create_routes(app, app_routes=routes_config):
                 )
         # Finally, add a url rule for this route
         app.add_url_rule(route['uri'],
-                         view_func=loaded_mod.as_view('%s_controller' % route['controller']),
+                         view_func=loaded_mod.as_view(name),
                          methods=route['methods'])
 
 
