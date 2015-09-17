@@ -1,5 +1,9 @@
 #Changelog
 Full list of changes for the environment.
+
+## Version 1.0.3
+ - Fix args_helper to identify nosetests environment.
+ 
 ## Version 1.0.2
  - More route load changes to allow `url_for()` using route names in `routes.yml` 
  
